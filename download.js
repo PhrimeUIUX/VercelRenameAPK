@@ -1,17 +1,12 @@
-// Vercel Function to proxy Google Drive download and rename the file
 const fetch = require('node-fetch');  // Importing fetch to fetch the file
 
 module.exports = async (req, res) => {
-    // Define your Google Drive file ID here
-    const fileId = "1Gf_3zoyi0XQ4NttJeUk5gY3YepzHgPr2";  // Replace with your file ID
-    const apiKey = "YOUR_GOOGLE_API_KEY";  // Replace with your Google API key
-
-    // Construct Google Drive API URL for file download
-    const url = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${apiKey}`;
+    // Use your provided Google Drive API URL here
+    const fileUrl = "https://www.googleapis.com/drive/v3/files/1Gf_3zoyi0XQ4NttJeUk5gY3YepzHgPr2?alt=media&key=AIzaSyAu6mGx3GD9rdC25yYuqWYGbEEeaMCOPRg"; 
 
     try {
-        // Fetch the file from Google Drive
-        const response = await fetch(url);
+        // Fetch the file from Google Drive using the provided URL
+        const response = await fetch(fileUrl);
         
         // Check if the request was successful
         if (!response.ok) {
